@@ -1,0 +1,16 @@
+
+
+version: "3.2"
+services:
+  web:
+    image: internetsystemsconsortium/bind9:9.17
+    ports:
+      - "10080:80"
+      - "53:53/udp"
+      - "53:53/tcp"
+      - "127.0.0.1:953:953/tcp"
+    volumes:
+      - "./data/bind:/etc/bind"
+      - "./data/cache:/var/cache/bind"
+      - "./data/lib:/var/lib/bind"
+      - "./data/log:/var/log"
